@@ -1,24 +1,22 @@
 package app;
 
-
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
+import org.json.JSONObject;
 
 public class Service {
 
-	public Service () {}
-	
+
 	private HashMap<Integer, Account> accounts  = new HashMap<> ();
 
 	
+	public Service () {}
+	
 	public void addAccount(Account account) {
 		
-
 		accounts.put(account.accountNumber, account);
+		
 		}
-	
 	
 
 	public String getAccounts(int accountNumber) {
@@ -27,7 +25,21 @@ public class Service {
 		
 		return  "Account: " + "  " + a.getFirstName() + "   " + a.getLastName()  ;
 	}
+	
+	
+	public JSONObject convertToJSON() {
+
+		JSONObject json= new JSONObject(accounts);
+			return json;
+			
 	}
+}
+	
+
+	
+	
+	
+	
 
 		
 	
